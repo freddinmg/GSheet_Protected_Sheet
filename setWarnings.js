@@ -18,15 +18,19 @@ function setRegularWarning() {
 }
 
 //This one was created for making an "IMPORTRANGE" formula that starts at A1. This is just so you don't accidentally delete the "IMPORTRANGE" formula when being careless.
+function createCustomWarning(sheet){
+  SS.getSheetByName(sheet).protect();
+  var warnedRange = SS.getSheetByName(sheet).getRange("A1");
+  warnedRange.protect().setWarningOnly(true);
+}
+
 function setCustomWarning() {
   var newSheetName = protected2+allSheetNum3; 
   var newSheetName = protected2+allSheetNum3;
   var newSheet = SS.insertSheet();
   console.log(counter1(count3));
   newSheet.setName(newSheetName);
-  SS.getSheetByName(newSheetName).protect();
-  var warnedRange = SS.getSheetByName(newSheetName).getRange("A1");
-  warnedRange.protect().setWarningOnly(true);
+  createCustomWarning(newSheetName);
 }
 
 //Nothing's stopping you from making a template yourself!
