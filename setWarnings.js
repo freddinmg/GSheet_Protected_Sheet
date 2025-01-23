@@ -26,11 +26,19 @@ function createCustomWarning(sheet){
 
 function setCustomWarning() {
   var newSheetName = protected2+allSheetNum3; 
+  //var protect2Arr = sheetNames.filter(x => x.includes(protected2));
+  //var protect2Max = (getLastPageNum(protect2Arr))+2;
+  //var newSheetName = protected2+protect2Max;
   var newSheetName = protected2+allSheetNum3;
   var newSheet = SS.insertSheet();
   console.log(counter1(count3));
   newSheet.setName(newSheetName);
   createCustomWarning(newSheetName);
+}
+
+function changeToCustomWarning(){
+  var targetSheet = SpreadsheetApp.getActiveSheet().getName();
+  createCustomWarning(targetSheet);
 }
 
 //Nothing's stopping you from making a template yourself!
